@@ -8,8 +8,6 @@ module.exports = {
   env: {
     browser: true
   },
-AWS_REGION=eu-west-2
-AWS_BUCKET=gameface-united-kingdom
   rules: {
   }
 };
