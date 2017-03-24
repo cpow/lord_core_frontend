@@ -2,6 +2,18 @@
 
 module.exports = function(environment) {
   var ENV = {
+    'ember-simple-auth': {
+      authorizer: 'authorizer:token'
+    },
+    'ember-simple-auth-token': {
+      serverTokenEndpoint: '/api/login',
+      identificationField: 'email',
+      passwordField: 'password',
+      tokenPropertyName: 'token',
+      timeFactor: 2000,
+      authorizationPrefix: null,
+      authorizationHeaderName: 'Authorization'
+    },
     modulePrefix: 'lord-core-frontend',
     environment: environment,
     rootURL: '/',

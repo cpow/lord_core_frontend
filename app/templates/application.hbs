@@ -1,1 +1,9 @@
-<h1>SUP GURL</h1>
+<h2 id="title">Welcome to ArticleQ</h2>
+{{#if session.isAuthenticated}}
+  <h3>Logged in</h3>
+  <br />
+  <button {{action 'invalidateSession'}}>Logout</button>
+{{else}}
+  {{link-to 'Login' 'login'}}
+{{/if}}
+{{outlet}}
