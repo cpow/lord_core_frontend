@@ -7,7 +7,7 @@ const { Controller,
 export default Controller.extend({
   session: service('session'),
   actions: {
-    invalidatSession() {
+    invalidateSession() {
       this.get('session').invalidate().then(() => {
         this.transitionToRoute('/');
       });
