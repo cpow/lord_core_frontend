@@ -6,7 +6,7 @@ module.exports = function(environment) {
       authorizer: 'authorizer:token'
     },
     'ember-simple-auth-token': {
-      serverTokenEndpoint: '/api/login',
+      serverTokenEndpoint: '/api/v1/login',
       identificationField: 'email',
       passwordField: 'password',
       tokenPropertyName: 'token',
