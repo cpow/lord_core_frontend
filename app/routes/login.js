@@ -1,21 +1,13 @@
 import Ember from 'ember';
+import EmObj from 'ember-object';
 
-const { Route, get,
-  inject: { service }
-} = Ember;
+const { Route } = Ember;
 
 export default Route.extend({
-  session: service('session'),
-  actions: {
-    authenticate() {
-      const credentials = this.controller.getProperties('identification', 'password');
-      get(this, 'session').authenticate('authenticator:jwt', credentials)
-        .then(() => {
-          this.transitionTo('/');
-        })
-      .catch((reason) => {
-        this.controller.set('errorMessage', reason.error || reason);
-      });
-    }
-  }
+  model() {
+    return EmObj.create({
+      email: null,
+      password: null
+    });
+  },
 });
