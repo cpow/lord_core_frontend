@@ -9,8 +9,9 @@ export default Controller.extend({
 
   actions: {
     submit(changeset) {
-      const credentials = changeset.getProperties('identification', 'password');
-      get(this, 'session').authenticate('authenticator:jwt', credentials)
+      let credentials = changeset.getProperties('identification', 'password');
+
+      get(this, 'session').authenticate('authenticator:token', credentials)
         .then(() => {
           this.transitionToRoute('/');
         })
