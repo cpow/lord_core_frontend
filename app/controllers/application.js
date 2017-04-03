@@ -5,7 +5,7 @@ const { Controller,
  } = Ember;
 
 export default Controller.extend({
-  session: service('session'),
+  session: service(),
   actions: {
     invalidateSession() {
       this.get('session').invalidate().then(() => {

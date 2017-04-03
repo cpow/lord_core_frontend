@@ -5,7 +5,7 @@ const { Controller, get,
 } = Ember;
 
 export default Controller.extend({
-  session: service('session'),
+  session: service(),
 
   actions: {
     submit(changeset) {

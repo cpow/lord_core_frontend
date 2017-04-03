@@ -1,12 +1,15 @@
-import { moduleFor, test } from 'ember-qunit';
+import { expect } from 'chai';
+import { describe, it } from 'mocha';
+import { setupTest } from 'ember-mocha';
 
-moduleFor('controller:login', 'Unit | Controller | login', {
-  // Specify the other units that are required for this test.
-  // needs: ['controller:foo']
-});
+describe('Unit | Controller | login', function (){
+  setupTest('controller:login', {
+    // Specify the other units that are required for this test.
+    needs: ['service:session']
+  });
 
-// Replace this with your real tests.
-test('it exists', function(assert) {
-  let controller = this.subject();
-  assert.ok(controller);
+  it('exists', function() {
+    let controller = this.subject();
+    expect(controller).to.be.ok;
+  });
 });
