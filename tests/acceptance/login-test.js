@@ -40,7 +40,7 @@ describe('Acceptance | login', function() {
     click('button[type=submit]');
 
     wait().andThen(() => {
-      expect(currentURL()).to.equal('/');
+      expect(currentURL()).to.equal('/dashboard');
     });
   });
 });

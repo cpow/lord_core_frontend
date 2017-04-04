@@ -13,7 +13,7 @@ export default Controller.extend({
 
       get(this, 'session').authenticate('authenticator:token', credentials)
         .then(() => {
-          this.transitionToRoute('/');
+          this.transitionToRoute('/dashboard');
         })
       .catch((reason) => {
         this.set('errorMessage', reason.error || reason);
