@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import { task } from 'ember-concurrency';
 
 const { Controller, get,
   inject: { service }
@@ -7,17 +8,9 @@ const { Controller, get,
 export default Controller.extend({
   session: service(),
 
-  actions: {
-    submit(changeset) {
-      let credentials = changeset.getProperties('identification', 'password');
-
-      get(this, 'session').authenticate('authenticator:token', credentials)
-        .then(() => {
-          this.transitionToRoute('/dashboard');
-        })
-      .catch((reason) => {
-        this.set('errorMessage', reason.error || reason);
-      });
-    }
-  }
+  submit: task(function * (changeset){
+    let credentials = changeset.getProperties('identification', 'password');
+    yield get(this, 'session').authenticate('authenticator:token', credentials);
+    this.transitionToRoute('/');
+  }),
 });

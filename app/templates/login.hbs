@@ -1,21 +1,29 @@
 <h3>Login</h3>
-<div class="container">
-  {{#bs-form model=(changeset model LoginValidation) onSubmit=(action "submit") as |form|}}
-    {{form.element
-      controlType="email"
-      label="Email"
-      placeholder="Email"
-      property="identification"
-      required=true}}
-    {{form.element
-      controlType="password"
-      label="Password"
-      placeholder="Password"
-      property="password"
-      required=true}}
-    {{bs-button
-      defaultText="Submit" 
-      type="primary"
-      buttonType="submit"}}
-  {{/bs-form}}
-</div>
+{{#if submit.isError}}
+  {{submit.error}}
+{{/if}}
+
+{{#if submit.isRunning}}
+  Loading...
+{{else}}
+  <div class="container">
+    {{#bs-form model=(changeset model LoginValidation) onSubmit=(perform submit) as |form|}}
+      {{form.element
+        controlType="email"
+        label="Email"
+        placeholder="Email"
+        property="identification"
+        required=true}}
+      {{form.element
+        controlType="password"
+        label="Password"
+        placeholder="Password"
+        property="password"
+        required=true}}
+      {{bs-button
+        defaultText="Submit" 
+        type="primary"
+        buttonType="submit"}}
+    {{/bs-form}}
+  </div>
+{{/if}}
