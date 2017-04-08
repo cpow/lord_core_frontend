@@ -33,9 +33,9 @@ export default function() {
       return {token: user.id};
     } else {
       let headers = { 'Accept': 'application/vnd.api+json', 'Content-Type': 'application/vnd.api+json' };
-      let body = { errors: [{ detail: 'Email or password is invalid' }] };
+      let body = { errors: ['bad creds'] };
 
-      return new Mirage.Response(400, headers, body);
+      return new Mirage.Response(401, headers, body);
     }
   });
 }
