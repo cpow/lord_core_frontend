@@ -12,7 +12,6 @@ export default Component.extend({
     let credentials = changeset.getProperties('identification', 'password');
     try {
       yield get(this, 'session').authenticate('authenticator:token', credentials);
-      get(this, 'onLogin')();
     } catch(e) {
       this.set('errors', e);
     }

@@ -13,12 +13,8 @@ describe('Integration | Component | login form', function() {
     let model = server.create('user');
     this.set('user', model);
 
-    this.on('completeLogin', function() {return true;});
-
     this.render(hbs`
-      {{login-form
-          model=user
-          onLogin=(action 'completeLogin')}}
+      {{login-form model=user}}
     `);
     expect(this.$()).to.have.length(1);
   });

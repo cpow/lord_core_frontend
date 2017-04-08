@@ -1,0 +1,13 @@
+import Model from 'ember-data/model';
+import attr from 'ember-data/attr';
+
+export default Model.extend({
+  passwordConfirmation: attr('string'),
+  email: attr('string'),
+  firstName: attr('string'),
+  lastName: attr('string'),
+  password: attr('string'),
+  role: attr('string'),
+  username: attr('string'),
+});
+

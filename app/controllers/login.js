@@ -6,10 +6,4 @@ const { Controller,
 
 export default Controller.extend({
   session: service(),
-
-  actions: {
-    completeLogin(){
-      this.transitionToRoute('/');
-    }
-  }
 });

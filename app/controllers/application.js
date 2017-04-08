@@ -8,9 +8,7 @@ export default Controller.extend({
   session: service(),
   actions: {
     invalidateSession() {
-      this.get('session').invalidate().then(() => {
-        this.transitionToRoute('/');
-      });
+      this.get('session').invalidate();
     }
   }
 });
