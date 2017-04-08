@@ -38,4 +38,9 @@ export default function() {
       return new Mirage.Response(401, headers, body);
     }
   });
+
+  this.get('/users/me', function({ users }, request) {
+    let id = request.requestHeaders.Authorization;
+    return users.find(id);
+  });
 }

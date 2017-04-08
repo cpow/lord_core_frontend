@@ -23,7 +23,30 @@ describe('Acceptance | login', function() {
     });
   });
 
-  it('can post to login', function() {
+  it('will redirect to manager dashboard as manager', function() {
+    let user = server.create('user', {
+      email: 'user@example.com',
+      password: 'test1234',
+      role: 'manager'
+    });
+
+    page.visit();
+
+    andThen(() => {
+      expect(currentURL()).to.equal('/login');
+    });
+
+    page
+      .email(user.email)
+      .password(user.password)
+      .submit();
+
+    wait().andThen(() => {
+      expect(currentURL()).to.equal(`/${user.role}-dashboard`);
+    });
+  });
+
+  it('will redirect to tenant dashboard as tenant', function() {
     let user = server.create('user', {
       email: 'user@example.com',
       password: 'test1234',
@@ -42,7 +65,7 @@ describe('Acceptance | login', function() {
       .submit();
 
     wait().andThen(() => {
-      expect(currentURL()).to.equal('/');
+      expect(currentURL()).to.equal(`/${user.role}-dashboard`);
     });
   });
 
