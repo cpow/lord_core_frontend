@@ -1,1 +1,9 @@
-{{outlet}}
+{{#if model.modelTask.isRunning}}
+  <div class="alert alert-info">
+    LOADING
+  </div>
+{{else}}
+  <h1>
+    Welcome to: {{model.modelTask.value.name}}
+  </h1>
+{{/if}}

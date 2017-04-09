@@ -1,5 +1,8 @@
 import Model from 'ember-data/model';
 import attr from 'ember-data/attr';
+import DS from 'ember-data';
+
+const { belongsTo } = DS;
 
 export default Model.extend({
   passwordConfirmation: attr('string'),
@@ -9,5 +12,7 @@ export default Model.extend({
   password: attr('string'),
   role: attr('string'),
   username: attr('string'),
+
+  company: belongsTo('company')
 });
 

@@ -1,3 +1,7 @@
+import Ember from 'ember';
+
+export default Ember.Service.extend({
+});
 import Service from 'ember-service';
 import service from 'ember-service/inject';
 
