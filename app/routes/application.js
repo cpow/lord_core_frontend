@@ -9,6 +9,10 @@ export default Route.extend(ApplicationRouteMixin, {
     return this._loadCurrentUser();
   },
 
+  afterModel() {
+    this.transitionTo(this.routeFromAuthenticatedRole());
+  },
+
   sessionAuthenticated() {
     this._super(...arguments);
     this._loadCurrentUser()
