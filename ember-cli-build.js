@@ -8,10 +8,6 @@ module.exports = function(defaults) {
       'importBootstrapFont': true,
       'importBootstrapCSS': false
     },
-
-   babel: {
-      includePolyfill: true
-    }
   });
 
   // Use `app.import` to add additional libraries to the generated

@@ -2,7 +2,7 @@ import Ember from 'ember';
 import { task } from 'ember-concurrency';
 
 const { get, Route,
-  inject: { service }
+  inject: { service },
 } = Ember;
 
 export default Route.extend({

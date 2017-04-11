@@ -10,7 +10,9 @@ export default Route.extend(ApplicationRouteMixin, {
   },
 
   afterModel() {
-    this.transitionTo(this.routeFromAuthenticatedRole());
+    if (this.get('currentUser.user')) {
+      this.transitionTo(this.routeFromAuthenticatedRole());
+    }
   },
 
   sessionAuthenticated() {
@@ -23,7 +25,7 @@ export default Route.extend(ApplicationRouteMixin, {
   },
 
   _loadCurrentUser() {
-    return this.get('currentUser').load();
+    return this.get('currentUser.loadTask').perform();
   },
 
   routeFromAuthenticatedRole() {

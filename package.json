@@ -15,12 +15,8 @@
     "test": "ember test"
   },
   "devDependencies": {
-    "bootstrap-sass": "^3.3.7",
     "broccoli-asset-rev": "^2.4.5",
     "ember-ajax": "^2.4.1",
-    "ember-bootstrap": "^1.0.0-alpha.7",
-    "ember-bootstrap-4": "^0.1.2",
-    "ember-bootstrap-changeset-validations": "^1.0.0-alpha.2",
     "ember-can": "^0.8.4",
     "ember-changeset": "^1.2.3",
     "ember-changeset-validations": "^1.2.6",
@@ -49,7 +45,8 @@
     "ember-simple-auth-token": "^2.1.0",
     "ember-source": "~2.12.0",
     "ember-welcome-page": "^2.0.2",
-    "loader.js": "^4.2.3"
+    "loader.js": "^4.2.3",
+    "semantic-ui-ember": "^2.0.1"
   },
   "engines": {
     "node": ">= 4"
