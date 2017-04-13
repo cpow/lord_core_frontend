@@ -1,18 +1,31 @@
-<h3>Login</h3>
-{{#if errors.errors}}
-  <div class="alert alert-danger">
-    {{#each errors.errors as |errorMessage|}}
-      {{errorMessage}}
-    {{/each}}
-  </div>
-{{/if}}
+  <h3>Login</h3>
+  {{#if errors.errors}}
+    <div class='alert alert-danger'>
+      {{#each errors.errors as |errorMessage|}}
+        {{errorMessage}}
+      {{/each}}
+    </div>
+  {{/if}}
 
 {{#if submit.isRunning}}
   Loading...
 {{else}}
-  <form {{action (perform submit model) on='submit'}}>
-   {{input type='email' id='identification' placeholder='Email' value=model.identification}}
-   {{input type='password' id='password' placeholder='Password' value=model.password}}
-   <button type="submit">Login</button>
+
+  <form class='ui form' {{action (perform submit model) on='submit'}}>
+    <div class='field'>
+      {{input type='email'
+          id='identification'
+          placeholder='Email'
+          value=model.identification}}
+      </div>
+    <div class='field'>
+      {{input type='password'
+          id='password'
+          placeholder='Password'
+          value=model.password}}
+    </div>
+
+
+    <button class='ui button' type='submit'>Login</button>
   </form>
 {{/if}}
