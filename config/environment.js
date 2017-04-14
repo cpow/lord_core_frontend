@@ -14,12 +14,6 @@ module.exports = function(environment) {
       authorizationPrefix: null,
       authorizationHeaderName: 'Authorization'
     },
-    'ember-plaid': {
-      clientName: 'BrownTree Labs',
-      product: 'auth',
-      key: 'ad640367b8e222632e952b3b5acf51',
-      env: 'tartan'
-    },
     modulePrefix: 'lord-core-frontend',
     environment: environment,
     rootURL: '/',
