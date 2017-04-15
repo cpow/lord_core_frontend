@@ -6,34 +6,36 @@ const { $ } = Ember;
 export default Ember.Component.extend({
   plaidHandler: null,
 
-  plaidCreator: function() {
+  plaidCreator() {
+    let self = this;
     return Plaid.create({
       apiVersion: 'v2',
       clientName: 'browntree labs',
       env: 'sandbox',
       product: 'auth',
       key: 'ad640367b8e222632e952b3b5acf51',
-      onSuccess: function(public_token, metadata) {
-        this.get('onSuccessTask').perform();
+      onSuccess: (public_token, metadata) => {
+        self.plaidLinkCallback(public_token, metadata);
       }
     });
   },
 
-  onSuccessTask: task(function * () {
-    debugger;
-  }),
+  plaidLinkCallback(public_token, metadata) {
+    "use strict";
+    return this.attrs.successTask.perform(public_token, metadata);
+  },
 
   loadScriptTask: task(function * () {
-      $.ajaxSetup({
-        cache: true
-      });
+    $.ajaxSetup({
+      cache: true
+    });
 
-      yield $.getScript('https://cdn.plaid.com/link/v2/stable/link-initialize.js');
+    yield $.getScript('https://cdn.plaid.com/link/v2/stable/link-initialize.js');
 
-      this.set('plaidHandler', this.get('plaidCreator')());
+    this.set('plaidHandler', this.plaidCreator());
   }),
 
-  didInsertElement: function() {
+  didInsertElement() {
     this.get('loadScriptTask').perform();
 
   },

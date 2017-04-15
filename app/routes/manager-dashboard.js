@@ -8,6 +8,10 @@ const { get, Route,
 export default Route.extend({
   currentUser: service(),
 
+  newStripeTask: task(function * () {
+    "use strict";
+  }),
+
   model() {
     return {
       modelTask: get(this, 'modelTask').perform()
