@@ -12,6 +12,8 @@ module.exports = {
   },
   globals: {
     server: false,
-    wait: false
+    wait: false,
+    //noinspection JSUnresolvedVariable
+    Plaid: false
   }
 };

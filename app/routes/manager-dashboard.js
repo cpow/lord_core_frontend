@@ -3,14 +3,11 @@ import { task } from 'ember-concurrency';
 
 const { get, Route,
   inject: { service },
+  computed: { reads, readOnly },
 } = Ember;
 
 export default Route.extend({
   currentUser: service(),
-
-  newStripeTask: task(function * () {
-    "use strict";
-  }),
 
   model() {
     return {

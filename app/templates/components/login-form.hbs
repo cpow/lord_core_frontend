@@ -1,11 +1,11 @@
-  <h3>Login</h3>
-  {{#if errors.errors}}
-    <div class='alert alert-danger'>
-      {{#each errors.errors as |errorMessage|}}
-        {{errorMessage}}
-      {{/each}}
-    </div>
-  {{/if}}
+<h3>Login</h3>
+{{#if errors.errors}}
+  <div class='ui negative message'>
+    {{#each errors.errors as |errorMessage|}}
+      {{errorMessage}}
+    {{/each}}
+  </div>
+{{/if}}
 
 {{#if submit.isRunning}}
   Loading...

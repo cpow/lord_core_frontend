@@ -10,12 +10,9 @@ export default Service.extend({
   loadTask: task(function * () {
     if (this.get('session.isAuthenticated')) {
       let user = yield this.get('store').queryRecord('user', { me: true });
-      this.set('user', user)
-      return user
+      this.set('user', user);
+      return user;
     }
   }),
-
-  load() {
-  }
 });
 

@@ -1,10 +1,25 @@
 import Ember from 'ember';
 import { task } from 'ember-concurrency';
 
-const { $ } = Ember;
+const { $, get } = Ember;
 
 export default Ember.Component.extend({
   plaidHandler: null,
+  successTask: null, /* passed in via handlebars closure action */
+
+  didInsertElement() {
+    get(this, 'loadScriptTask').perform();
+  },
+
+  loadScriptTask: task(function * () {
+    $.ajaxSetup({
+      cache: true
+    });
+
+    yield $.getScript('https://cdn.plaid.com/link/v2/stable/link-initialize.js');
+
+    this.set('plaidHandler', this.plaidCreator());
+  }),
 
   plaidCreator() {
     let self = this;
@@ -21,28 +36,12 @@ export default Ember.Component.extend({
   },
 
   plaidLinkCallback(public_token, metadata) {
-    "use strict";
-    return this.attrs.successTask.perform(public_token, metadata);
-  },
-
-  loadScriptTask: task(function * () {
-    $.ajaxSetup({
-      cache: true
-    });
-
-    yield $.getScript('https://cdn.plaid.com/link/v2/stable/link-initialize.js');
-
-    this.set('plaidHandler', this.plaidCreator());
-  }),
-
-  didInsertElement() {
-    this.get('loadScriptTask').perform();
-
+    return get(this, 'success')(public_token, metadata);
   },
 
   actions: {
     clicked() {
-      this.get('plaidHandler').open();
+      get(this, 'plaidHandler').open();
     }
   }
 });

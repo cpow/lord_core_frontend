@@ -6,6 +6,10 @@
   <h1>
     Welcome to: {{model.modelTask.value.name}}
   </h1>
+  <h2>
+    You Are: {{user.email}}
+  </h2>
+  {{link-to 'New Stripe Account' 'users.stripe-account.new' user}}
+  {{log user}}
 {{/if}}
 
-{{plaid-link successTask=newStripeTask}}
