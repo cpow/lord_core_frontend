@@ -10,7 +10,6 @@
 {{#if submit.isRunning}}
   Loading...
 {{else}}
-
   <form class='ui form' {{action (perform submit model) on='submit'}}>
     <div class='field'>
       {{input type='email'
@@ -24,7 +23,6 @@
           placeholder='Password'
           value=model.password}}
     </div>
-
 
     <button class='ui button' type='submit'>Login</button>
   </form>
