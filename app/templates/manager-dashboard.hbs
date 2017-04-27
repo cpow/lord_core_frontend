@@ -9,7 +9,14 @@
   <h2>
     You Are: {{user.email}}
   </h2>
-  {{link-to 'New Stripe Account' 'users.stripe-account.new' user}}
-  {{log user}}
+
+  {{#if user.hasStripeAccount}}
+    <div class="ui info message">
+      You already have a stripe account!!
+    </div>
+  {{else}}
+    {{link-to 'New Stripe Account' 'users.stripe-account.new' user}}
+  {{/if}}
 {{/if}}
 
+{{log user.stripeAccount}}

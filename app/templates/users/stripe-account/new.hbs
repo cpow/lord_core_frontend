@@ -1,3 +1,9 @@
 <h1>CREATE A NEW STRIPE ACCOUNT</h1>
 
-{{plaid-link success=(action "success")}}
+{{#if successTask.isRunning}}
+  <div class="ui info message">
+    Saving Stripe Account
+  </div>
+{{else}}
+  {{plaid-link success=(action "success")}}
+{{/if}}

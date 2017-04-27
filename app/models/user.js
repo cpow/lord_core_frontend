@@ -1,8 +1,11 @@
 import Model from 'ember-data/model';
 import attr from 'ember-data/attr';
 import DS from 'ember-data';
+import Ember from 'ember';
 
 const { belongsTo } = DS;
+
+const { computed: { notEmpty } } = Ember;
 
 export default Model.extend({
   passwordConfirmation: attr('string'),
@@ -13,6 +16,8 @@ export default Model.extend({
   role: attr('string'),
   username: attr('string'),
 
-  company: belongsTo('company')
+  company: belongsTo('company'),
+  stripeAccount: belongsTo('stripe-account'),
+  hasStripeAccount: notEmpty('stripeAccount.id')
 });
 
