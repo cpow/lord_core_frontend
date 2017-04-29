@@ -18,7 +18,7 @@ export default Controller.extend({
   }),
 
   actions: {
-    success(public_token, metadata) {
+    success(/*public_token, metadata*/) {
       get(this, 'createStripeAccountTask').perform();
       return this.transitionToRoute('application');
     }

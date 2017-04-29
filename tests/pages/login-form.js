@@ -12,5 +12,5 @@ export default create({
   email: fillable('input[type="email"]'),
   password: fillable('input[type="password"]'),
   submit: clickable('button[type=submit]'),
-  error: text('.alert.alert-danger'),
+  error: text('.ui.negative.message'),
 });

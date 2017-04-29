@@ -5,7 +5,7 @@ import { setupTest } from 'ember-mocha';
 describe('Unit | Controller | users/stripe account/new', function() {
   setupTest('controller:users/stripe-account/new', {
     // Specify the other units that are required for this test.
-    // needs: ['controller:foo']
+    needs: ['service:currentUser']
   });
 
   // Replace this with your real tests.

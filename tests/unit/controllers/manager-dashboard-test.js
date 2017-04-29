@@ -5,7 +5,7 @@ import { setupTest } from 'ember-mocha';
 describe('Unit | Controller | manager dashboard', function() {
   setupTest('controller:manager-dashboard', {
     // Specify the other units that are required for this test.
-    // needs: ['controller:foo']
+    needs: ['service:currentUser']
   });
 
   // Replace this with your real tests.

@@ -5,7 +5,7 @@ import { setupModelTest } from 'ember-mocha';
 describe('Unit | Model | stripe account', function() {
   setupModelTest('stripe-account', {
     // Specify the other units that are required for this test.
-      needs: []
+      needs: ['model:user']
   });
 
   // Replace this with your real tests.
