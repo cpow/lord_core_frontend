@@ -26,6 +26,7 @@ export default Ember.Component.extend({
     return Plaid.create({
       apiVersion: 'v2',
       clientName: 'browntree labs',
+      selectAccount: true,
       env: 'sandbox',
       product: 'auth',
       key: 'ad640367b8e222632e952b3b5acf51',

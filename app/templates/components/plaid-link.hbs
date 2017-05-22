@@ -1,3 +1,7 @@
+{{#if loadScriptTask.isRunning}}
+  LOADING...
+{{else}}
 <div class="ui-plaid-link__button">
   <button {{action "clicked"}}>Sup girl</button>
 </div>
+{{/if}}
