@@ -1,22 +1,27 @@
-{{#if model.modelTask.isRunning}}
-  <div class="alert alert-info">
-    LOADING
-  </div>
-{{else}}
-  <h1>
-    Welcome to: {{model.modelTask.value.name}}
-  </h1>
-  <h2>
-    You Are: {{user.email}}
-  </h2>
-
-  {{#if user.hasStripeAccount}}
-    <div class="ui info message">
-      You already have a stripe account!!
+<div class="container manager-dashboard">
+  {{#if model.modelTask.isRunning}}
+    <div class="alert alert-info">
+      LOADING
     </div>
   {{else}}
-    {{link-to 'New Stripe Account' 'users.stripe-account.new' user}}
-  {{/if}}
-{{/if}}
+    <h1>
+      Welcome to: {{model.modelTask.value.name}}
+    </h1>
+    <h2>
+      You Are: {{user.email}}
+    </h2>
 
-{{log user.stripeAccount}}
+    {{#if user.hasStripeAccount}}
+      <div class="ui info message">
+        You already have a stripe account!!
+      </div>
+      <div class="show-stripe-account__link">
+        {{link-to 'Check it out' 'users.stripe-account' user}}
+      </div>
+    {{else}}
+      <div class="new-stripe-account__link">
+        {{link-to 'New Stripe Account' 'users.stripe-account.new' user}}
+      </div>
+    {{/if}}
+  {{/if}}
+</div>

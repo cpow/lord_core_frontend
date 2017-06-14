@@ -1,4 +1,9 @@
 import Ember from 'ember';
 
-export default Ember.Route.extend({
+const { Route,
+  inject: { service },
+} = Ember;
+
+export default Route.extend({
+  currentUser: service(),
 });

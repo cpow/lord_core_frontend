@@ -4,7 +4,6 @@ import { setupComponentTest } from 'ember-mocha';
 import hbs from 'htmlbars-inline-precompile';
 import Ember from 'ember';
 import sinon from 'sinon';
-// import page from '../pages/plaid-link';
 
 const { set, get } = Ember;
 

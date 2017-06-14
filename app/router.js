@@ -17,6 +17,12 @@ Router.map(function() {
       this.route('edit');
     });
   });
+
+  this.route('stripe-account', function() {});
+
+  this.route('user', function() {
+    this.route('stripe-account');
+  });
 });
 
 export default Router;

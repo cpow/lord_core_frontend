@@ -2,8 +2,8 @@ import { expect } from 'chai';
 import { describe, it } from 'mocha';
 import { setupTest } from 'ember-mocha';
 
-describe('Unit | Route | tenant dashboard', function() {
-  setupTest('route:tenant-dashboard', {
+describe('Unit | Route | users/stripe account/index', function() {
+  setupTest('route:users/stripe-account/index', {
     needs: ['service:currentUser']
   });
 
