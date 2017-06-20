@@ -25,6 +25,8 @@ export default function() {
     http://www.ember-cli-mirage.com/docs/v0.3.x/shorthands/
   */
 
+  this.get('/users/:id');
+
   this.post('/login', function({ users }, request) {
     let {email, password} = JSON.parse(request.requestBody);
     let user = users.findBy({email, password});

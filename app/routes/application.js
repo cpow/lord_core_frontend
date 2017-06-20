@@ -1,17 +1,23 @@
 import Route from 'ember-route';
+import Ember from 'ember';
 import service from 'ember-service/inject';
 import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
 
+const { get } = Ember;
+
 export default Route.extend(ApplicationRouteMixin, {
   currentUser: service(),
+  window: window,
+
 
   beforeModel() {
+    this.setInitialURLInSession();
     return this._loadCurrentUser();
   },
 
   afterModel() {
-    if (this.get('currentUser.user')) {
-      this.transitionTo(this.routeFromAuthenticatedRole());
+    if (get(this, 'currentUser.user')) {
+      this.transitionTo(this.routeFromRoleOrInitialURL());
     }
   },
 
@@ -19,22 +25,42 @@ export default Route.extend(ApplicationRouteMixin, {
     this._super(...arguments);
     this._loadCurrentUser()
       .then(() => {
-        return this.transitionTo(this.routeFromAuthenticatedRole());
+        return this.transitionTo(this.routeFromRoleOrInitialURL());
       })
-      .catch(() => this.get('session').invalidate());
+      .catch(() => get(this, 'session').invalidate());
   },
 
   _loadCurrentUser() {
-    return this.get('currentUser.loadTask').perform();
+    return get(this, 'currentUser.loadTask').perform();
   },
 
-  routeFromAuthenticatedRole() {
-    let role = this.get('currentUser.user.role');
+  routeFromRoleOrInitialURL() {
+    let role = get(this, 'currentUser.user.role');
+    let initialURL = get(this, 'session.store.initialURL');
+    if (initialURL) {
+      this.invalidateInitialURL();
+      return initialURL
+    }
+
     if (role) {
       return `${role}-dashboard`;
-    } else {
-      return '/';
     }
+
+    return '/';
+  },
+
+  setInitialURLInSession() {
+    let initialURL = get(this, 'window.location.pathname');
+
+    if (!(initialURL === '/' || initialURL ==='/tests')){
+      this.set('session.store.initialURL', initialURL);
+    } else {
+      this.invalidateInitialURL()
+    }
+  },
+
+  invalidateInitialURL() {
+    this.set('session.store.initialURL', null);
   }
 });
 

@@ -5,7 +5,7 @@ import { setupTest } from 'ember-mocha';
 describe('Unit | Route | manager dashboard', function() {
   setupTest('route:manager-dashboard', {
     // Specify the other units that are required for this test.
-    needs: ['service:currentUser']
+    needs: ['service:currentUser', 'service:session']
   });
 
   it('exists', function() {

@@ -5,7 +5,7 @@ import { setupTest } from 'ember-mocha';
 describe('Unit | Route | users/stripe account', function() {
   setupTest('route:users/stripe-account', {
     // Specify the other units that are required for this test.
-    // needs: ['controller:foo']
+    needs: ['service:session']
   });
 
   it('exists', function() {
