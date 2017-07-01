@@ -23,6 +23,7 @@ Router.map(function() {
   this.route('user', function() {
     this.route('stripe-account');
   });
+  this.route('properties');
 });
 
 export default Router;
