@@ -14,6 +14,9 @@
     "start": "ember server",
     "test": "ember test"
   },
+  "scripts": {
+    "start": "ember server --proxy=http://localhost:4000/"
+  },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
     "ember-ajax": "^2.4.1",
