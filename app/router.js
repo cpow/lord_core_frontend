@@ -1,9 +1,15 @@
 import Ember from 'ember';
 import config from './config/environment';
 
+const { get, set } = Ember;
+
 const Router = Ember.Router.extend({
   location: config.locationType,
-  rootURL: config.rootURL
+  rootURL: config.rootURL,
+
+  activate() {
+    set(this, 'session.store.initialURL', get(this, 'routeName'));
+  }
 });
 
 Router.map(function() {
@@ -23,6 +29,7 @@ Router.map(function() {
   this.route('user', function() {
     this.route('stripe-account');
   });
+
   this.route('properties');
 });
 

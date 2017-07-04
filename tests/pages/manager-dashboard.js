@@ -10,5 +10,8 @@ export default create({
   visit: visitable('/manager-dashboard'),
 
   clickNewStripeAccount: clickable('.new-stripe-account__link a'),
-  showingNewStripeAccountLink: isVisible('.new-stripe-account__link a')
+  showingNewStripeAccountLink: isVisible('.new-stripe-account__link a'),
+
+  clickOnProperties: clickable('.company-properties__link a'),
+  showingPropertiesLink: isVisible('.company-properties__link a'),
 });

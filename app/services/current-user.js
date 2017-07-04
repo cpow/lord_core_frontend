@@ -1,7 +1,10 @@
 import Service from 'ember-service';
-import service from 'ember-service/inject';
-
 import { task } from 'ember-concurrency';
+import Ember from 'ember';
+
+const { get,
+  inject: { service },
+} = Ember;
 
 export default Service.extend({
   session: service(),
@@ -9,7 +12,7 @@ export default Service.extend({
 
   loadTask: task(function * () {
     if (this.get('session.isAuthenticated')) {
-      let user = yield this.get('store').queryRecord('user', { me: true });
+      let user = yield get(this, 'store').queryRecord('user', { me: true });
       this.set('user', user);
       return user;
     }

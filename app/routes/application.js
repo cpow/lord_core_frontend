@@ -7,11 +7,8 @@ const { get } = Ember;
 
 export default Route.extend(ApplicationRouteMixin, {
   currentUser: service(),
-  window: window,
-
 
   beforeModel() {
-    this.setInitialURLInSession();
     return this._loadCurrentUser();
   },
 
@@ -37,6 +34,7 @@ export default Route.extend(ApplicationRouteMixin, {
   routeFromRoleOrInitialURL() {
     let role = get(this, 'currentUser.user.role');
     let initialURL = get(this, 'session.store.initialURL');
+
     if (initialURL) {
       this.invalidateInitialURL();
       return initialURL
@@ -47,16 +45,6 @@ export default Route.extend(ApplicationRouteMixin, {
     }
 
     return '/';
-  },
-
-  setInitialURLInSession() {
-    let initialURL = get(this, 'window.location.pathname');
-
-    if (!(initialURL === '/' || initialURL ==='/tests')){
-      this.set('session.store.initialURL', initialURL);
-    } else {
-      this.invalidateInitialURL()
-    }
   },
 
   invalidateInitialURL() {

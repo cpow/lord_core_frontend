@@ -1,1 +1,27 @@
-{{outlet}}
+<div class="company-properties">
+  {{#if model.modelTask.isRunning}}
+    LOADING...
+  {{else}}
+    <h1>Properties for {{company.name}}</h1>
+    <table class="company-properties__table">
+      <thead>
+        <th>name</th>
+        <th>address</th>
+        <th>id</th>
+      </thead>
+      {{#each model as |property|}}
+        <tr class="company-properties__row">
+          <td class="company-properties__name">
+            {{property.name}}
+          </td>
+          <td class="company-properties__address">
+            {{property.address}}
+          </td>
+          <td class="company-properties__id">
+            {{property.id}}
+          </td>
+        </tr>
+      {{/each}}
+    </table>
+  {{/if}}
+</div>
