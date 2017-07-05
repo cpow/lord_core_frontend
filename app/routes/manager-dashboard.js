@@ -10,12 +10,12 @@ export default Route.extend(AuthenticatedRouteMixin, {
   currentUser: service(),
 
   model() {
-    return {
-      modelTask: get(this, 'modelTask').perform()
-    };
+    return get(this, 'modelTask').perform()
   },
 
   modelTask: task(function * (){
-    return yield get(this, 'currentUser.user.company');
+    const companyId = get(this, 'currentUser.user.company.id');
+    yield get(this, 'store').findAll('property');
+    return yield this.store.findRecord('company', companyId);
   }),
 });

@@ -12,7 +12,7 @@ export default create({
 
   properties: collection({
     scope: 'table.company-properties__table',
-    itemScope: 'tr',
+    itemScope: 'tbody tr',
 
     item: {
       name: text('td', {at:0}),

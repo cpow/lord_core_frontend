@@ -26,9 +26,12 @@ export default function() {
   */
 
   this.get('/users/:id');
+
   this.get('/properties/:id');
   this.get('/properties');
   this.put('/properties/:id');
+
+  this.get('/companies/:id');
 
   this.post('/login', function({ users }, request) {
     let {email, password} = JSON.parse(request.requestBody);

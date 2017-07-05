@@ -1,7 +1,11 @@
-{{#if loadScriptTask.isRunning}}
-  LOADING...
-{{else}}
 <div class="ui-plaid-link__button">
-  <button {{action "clicked"}}>Sup girl</button>
+  {{#if loadScriptTask.isRunning}}
+    <div class="ui active inverted dimmer">
+      <div class="ui text loader">Loading</div>
+    </div>
+  {{else}}
+    <button class="ui primary button" {{action "clicked"}}>
+      Sup girl
+    </button>
+  {{/if}}
 </div>
-{{/if}}

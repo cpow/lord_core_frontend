@@ -5,7 +5,7 @@ import { setupTest } from 'ember-mocha';
 describe('Unit | Controller | application', function(){
   setupTest('controller:application', {
     // Specify the other units that are required for this test.
-    needs: ['service:session']
+    needs: ['service:session', 'service:currentUser']
   });
 
   // Replace this with your real tests.

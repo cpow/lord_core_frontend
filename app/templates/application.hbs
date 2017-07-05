@@ -1,9 +1,33 @@
-<h2 id="title">Welcome to LordCore</h2>
 {{#if session.isAuthenticated}}
-  <h3>Logged in</h3>
-  <br />
-  <button {{action 'invalidateSession'}}>Logout</button>
+  <div class="ui menu">
+    <div class="header item">
+      LordCore
+    </div>
+    <a class="item" href="" onClick={{action "dashboardRoute"}}>Dashboard</a>
+    {{link-to 'Properties' 'properties' class="item company-properties__link"}}
+
+    {{#if user.hasStripeAccount}}
+      {{link-to 'Stripe Account' 'users.stripe-account' user class="item"}}
+    {{else}}
+      {{#link-to 'users.stripe-account.new' user class="item new-stripe-account__link"}}
+        New Stripe Account
+      {{/link-to}}
+    {{/if}}
+
+    <div class="item">
+      <button class="ui button" {{action 'invalidateSession'}}>Logout</button>
+    </div>
+  </div>
+
 {{else}}
-  {{link-to 'Login' 'login'}}
+  <div class="ui menu">
+    <div class="header item">
+      Lord Core
+    </div>
+    {{link-to 'Login' 'login' class="item"}}
+  </div>
 {{/if}}
-{{outlet}}
+
+<div class="ui container">
+  {{outlet}}
+</div>

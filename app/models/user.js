@@ -9,6 +9,7 @@ const { computed: { notEmpty } } = Ember;
 
 export default Model.extend({
   passwordConfirmation: attr('string'),
+  companyId: attr('number'),
   email: attr('string'),
   firstName: attr('string'),
   lastName: attr('string'),

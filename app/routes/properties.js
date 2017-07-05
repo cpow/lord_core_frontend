@@ -2,7 +2,7 @@ import Ember from 'ember';
 import { task } from 'ember-concurrency';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
-const { Route, get,
+const { Route, get, set,
   inject: { service },
   computed: { reads },
 } = Ember;
@@ -11,14 +11,17 @@ export default Route.extend(AuthenticatedRouteMixin, {
   currentUser: service(),
   session: service(),
 
-  company: reads('currentUser.user.company'),
+  companyId: reads('currentUser.user.company.id'),
+
+  activate() {
+    set(this, 'session.store.initialURL', get(this, 'routeName'));
+  },
 
   model() {
     return get(this, 'modelTask').perform();
   },
 
   modelTask: task(function * () {
-    const companyId = get(this, 'company.id');
-    return yield this.store.query('property', {company_id: companyId});
+    return yield this.store.findAll('property');
   }),
 });

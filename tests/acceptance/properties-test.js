@@ -18,8 +18,10 @@ describe('Acceptance | properties', function() {
   });
 
   it('manager can see a link to properties', function(){
-    let user = server.create('user', {role: 'manager'});
+    let company = server.create('company');
+    let user = server.create('user', {role: 'manager', company: company});
     authenticateSession(application, {token: user.id});
+
     managerPage.visit();
 
     andThen(() => {

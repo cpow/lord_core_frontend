@@ -24,10 +24,12 @@ describe('Acceptance | login', function() {
   });
 
   it('will redirect to manager dashboard as manager', function() {
+    let company = server.create('company')
     let user = server.create('user', {
       email: 'user@example.com',
       password: 'test1234',
-      role: 'manager'
+      role: 'manager',
+      company: company
     });
 
     page.visit();

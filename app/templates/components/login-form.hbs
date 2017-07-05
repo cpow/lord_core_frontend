@@ -1,16 +1,17 @@
-<h3>Login</h3>
-{{#if errors.errors}}
-  <div class='ui negative message'>
-    {{#each errors.errors as |errorMessage|}}
-      {{errorMessage}}
-    {{/each}}
-  </div>
-{{/if}}
+<h3 class="ui center">Login</h3>
 
-{{#if submit.isRunning}}
-  Loading...
-{{else}}
-  <form class='ui form' {{action (perform submit model) on='submit'}}>
+<form class='ui large form' {{action (perform submit model) on='submit'}}>
+  <div class="ui stacked segment">
+    {{#if errors.errors}}
+      <div class='ui negative message'>
+        {{#each errors.errors as |errorMessage|}}
+          {{errorMessage}}
+        {{/each}}
+      </div>
+    {{/if}}
+    <div class="ui inverted dimmer {{if submit.isRunning 'active'}}">
+      <div class="ui text loader">Loading</div>
+    </div>
     <div class='field'>
       {{input type='email'
           id='identification'
@@ -23,7 +24,6 @@
           placeholder='Password'
           value=model.password}}
     </div>
-
-    <button class='ui button' type='submit'>Login</button>
-  </form>
-{{/if}}
+    <button class='ui fluid large submit button' type='submit'>Login</button>
+  </div>
+</form>

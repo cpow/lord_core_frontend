@@ -6,12 +6,11 @@ import {
 } from 'ember-cli-page-object';
 
 export default create({
-  scope: '.manager-dashboard',
   visit: visitable('/manager-dashboard'),
 
-  clickNewStripeAccount: clickable('.new-stripe-account__link a'),
-  showingNewStripeAccountLink: isVisible('.new-stripe-account__link a'),
+  clickNewStripeAccount: clickable('a.new-stripe-account__link'),
+  showingNewStripeAccountLink: isVisible('a.new-stripe-account__link'),
 
-  clickOnProperties: clickable('.company-properties__link a'),
-  showingPropertiesLink: isVisible('.company-properties__link a'),
+  clickOnProperties: clickable('a.company-properties__link'),
+  showingPropertiesLink: isVisible('a.company-properties__link'),
 });
