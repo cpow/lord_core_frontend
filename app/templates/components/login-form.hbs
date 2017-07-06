@@ -1,7 +1,6 @@
-<h3 class="ui center">Login</h3>
-
 <form class='ui large form' {{action (perform submit model) on='submit'}}>
-  <div class="ui stacked segment">
+  <div class="ui piled segment">
+    <h3 class="ui header">Login</h3>
     {{#if errors.errors}}
       <div class='ui negative message'>
         {{#each errors.errors as |errorMessage|}}

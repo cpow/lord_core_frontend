@@ -10,11 +10,6 @@
   },
   "repository": "",
   "scripts": {
-    "build": "ember build",
-    "start": "ember server",
-    "test": "ember test"
-  },
-  "scripts": {
     "start": "ember server --proxy=http://localhost:4000/"
   },
   "devDependencies": {
@@ -39,6 +34,7 @@
     "ember-cli-shims": "^1.0.2",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-uglify": "^1.2.0",
+    "ember-cli-yuidoc": "^0.8.8",
     "ember-concurrency": "^0.8.1",
     "ember-data": "^2.12.0",
     "ember-export-application-global": "^1.0.5",

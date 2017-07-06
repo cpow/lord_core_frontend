@@ -1,0 +1,16 @@
+{
+  "name": "lord-core-frontend",
+  "description": "This is the frontend for the property management/payment app",
+  "version": "0.0.0",
+  "options": {
+    "paths": [
+      "app"
+    ],
+    "exclude": "vendor",
+    "outdir": "docs",
+    "linkNatives": true,
+    "quiet": true,
+    "parseOnly": false,
+    "lint": false
+  }
+}
