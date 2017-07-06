@@ -10,7 +10,9 @@ Router.map(function() {
   this.route('login');
   this.route('tenant-dashboard');
   this.route('manager-dashboard');
-  this.route('properties');
+  this.route('properties', function() {
+    this.route('new');
+  });
 
   this.route('users', function() {
     this.route('stripe-account', {path: '/:user_id/stripe-account'}, function() {

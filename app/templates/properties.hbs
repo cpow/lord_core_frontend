@@ -1,7 +1,9 @@
 <div class="company-properties">
+  {{outlet}}
   <h3>
     Properties for {{company.name}}
   </h3>
+  {{#link-to 'properties.new'}}New Property{{/link-to}}
   <table class="company-properties__table ui celled orange striped table">
     <thead>
       <tr>
@@ -27,3 +29,4 @@
     </tbody>
   </table>
 </div>
+

@@ -13,10 +13,6 @@ export default Route.extend(AuthenticatedRouteMixin, {
 
   companyId: reads('currentUser.user.company.id'),
 
-  activate() {
-    set(this, 'session.store.initialURL', get(this, 'routeName'));
-  },
-
   model() {
     return get(this, 'modelTask').perform();
   },
