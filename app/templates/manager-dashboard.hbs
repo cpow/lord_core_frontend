@@ -1,14 +1,29 @@
-{{#if modelTask.isRunning}}
-  <div class="alert alert-info">
-    LOADING
+<div class="ui inverted dimmer {{if modelTask.isRunning 'active'}}">
+  <div class="ui text loader">Loading</div>
+</div>
+
+<div class="ui grid">
+  <div class="eight wide column aligned">
+    <div class="ui segment huge">
+      <h1 class="ui header">
+        Welcome to LordCore: {{model.name}}
+      </h1>
+      <p class="ui left aligned content">
+        this is where you'll find all your information. Thanks for signing up!
+      </p>
+    </div>
   </div>
-{{else}}
-  <div class="ui container">
-    <h1>
-      Welcome to: {{model.name}}
-    </h1>
-    <h2>
-      You Are: {{user.email}}
-    </h2>
-  </div>
-{{/if}}
+  {{#unless user.hasStripeAccount}}
+    <div class="eight wide column ui large warning message">
+      <div class="ui header">You need to sign up for a stripe account</div>
+      Signing up for an account is the easiest way to take advantage of all our
+      awesome tools with payments, receiving payments, etc...
+      <div class="ui horizontal divider">
+      </div>
+      {{#link-to 'users.stripe-account.new' user
+          class="ui primary large button"}}
+        New Stripe Account
+      {{/link-to}}
+    </div>
+  {{/unless}}
+</div>

@@ -1,9 +1,4 @@
-<h1>CREATE A NEW STRIPE ACCOUNT</h1>
-
-{{#if successTask.isRunning}}
-  <div class="ui info message">
-    Saving Stripe Account
-  </div>
-{{else}}
-  {{plaid-link success=(action "success")}}
-{{/if}}
+<div class="ui {{if successTask.isRunning 'active'}} inverted dimmer">
+  <div class="ui text loader">Saving Stripe Account</div>
+</div>
+{{plaid-link success=(action "success")}}

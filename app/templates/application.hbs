@@ -1,5 +1,5 @@
 {{#if session.isAuthenticated}}
-  <div class="ui menu">
+  <div class="ui large menu">
     <div class="header item">
       LordCore
     </div>
@@ -14,13 +14,20 @@
       {{/link-to}}
     {{/if}}
 
-    <div class="item">
-      <button class="ui button" {{action 'invalidateSession'}}>Logout</button>
+    <div class="right menu">
+      <div class="item">
+        {{user.email}}
+      </div>
+      <div class="item">
+        <button class="ui button" {{action 'invalidateSession'}}>
+          Logout
+        </button>
+      </div>
     </div>
   </div>
 
 {{else}}
-  <div class="ui menu">
+  <div class="ui large menu">
     <div class="header item">
       Lord Core
     </div>

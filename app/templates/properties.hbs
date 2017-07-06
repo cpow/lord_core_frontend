@@ -1,29 +1,29 @@
 <div class="company-properties">
-  {{#if model.modelTask.isRunning}}
-    LOADING...
-  {{else}}
-    <h1>Properties for {{company.name}}</h1>
-    <table class="company-properties__table ui celled table">
-      <thead>
-        <tr><th>name</th>
+  <h3>
+    Properties for {{company.name}}
+  </h3>
+  <table class="company-properties__table ui celled orange striped table">
+    <thead>
+      <tr>
+        <th>name</th>
         <th>address</th>
         <th>id</th>
-        </tr></thead>
-        <tbody>
-          {{#each model as |property|}}
-            <tr class="company-properties__row">
-              <td class="company-properties__name">
-                {{property.name}}
-              </td>
-              <td class="company-properties__address">
-                {{property.address}}
-              </td>
-              <td class="company-properties__id">
-                {{property.id}}
-              </td>
-            </tr>
-          {{/each}}
-        </tbody>
-    </table>
-  {{/if}}
+      </tr>
+    </thead>
+    <tbody>
+      {{#each model as |property|}}
+        <tr class="company-properties__row">
+          <td class="company-properties__name">
+            {{property.name}}
+          </td>
+          <td class="company-properties__address">
+            {{property.address}}
+          </td>
+          <td class="company-properties__id">
+            {{property.id}}
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
 </div>
