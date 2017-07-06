@@ -1,5 +1,10 @@
-{{properties/new-form
-    model=model
-    changeset=(changeset model PropertyValidation)
-}}
+<div class="ui segment">
+  <div class="ui inverted dimmer {{if saveTask.isRunning 'active'}}">
+    <div class="ui text loader">Loading</div>
+  </div>
+  {{properties/new-form
+      changeset=(changeset model PropertyValidation)
+      on-save=(perform saveTask)
+  }}
+</div>
 

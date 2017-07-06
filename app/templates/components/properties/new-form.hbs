@@ -1,55 +1,53 @@
-<form class="ui large form" {{action (perform saveTask changeset) on='submit'}}>
-  <div class="ui segment">
-    {{#if changeset.isInvalid}}
-      <div class='ui negative message'>
-        <p>There were errors in your form:</p>
-        <ul>
-          {{#each changeset.errors as |error|}}
-            <li>{{error.key}}: {{error.validation}}</li>
-          {{/each}}
-        </ul>
-      </div>
-    {{/if}}
-
-    <div class="ui fluid large field">
-      <label>Name</label>
-      {{input type='text'
-          id='name'
-          placeholder='Property Name'
-          value=changeset.name}}
+<form class="ui large form" {{action on-save changeset on='submit'}}>
+  {{#if changeset.isInvalid}}
+    <div class='ui negative message'>
+      <p>There were errors in your form:</p>
+      <ul>
+        {{#each changeset.errors as |error|}}
+          <li>{{error.key}}: {{error.validation}}</li>
+        {{/each}}
+      </ul>
     </div>
+  {{/if}}
 
-    <div class="ui fluid large field">
-      <label>Address</label>
-      {{input type='text'
-          id='address'
-          placeholder='Address'
-          value=changeset.address}}
-    </div>
-
-    <div class="ui fluid large field">
-      <label>City</label>
-      {{input type='text'
-          id='city'
-          placeholder='City'
-          value=changeset.city}}
-    </div>
-
-    <div class="ui fluid large field">
-      <label>State</label>
-      {{input type='text'
-          id='state'
-          placeholder='state'
-          value=changeset.state}}
-    </div>
-
-    <div class="ui fluid large field">
-      <label>Zip</label>
-      {{input type='text'
-          id='zip'
-          placeholder='zip code'
-          value=changeset.zip}}
-    </div>
-    <button disabled={{changeset.isInvalid}} class='ui fluid large submit button' type='submit'>Submit</button>
+  <div class="ui fluid large field">
+    <label>Name</label>
+    {{input type='text'
+        id='name'
+        placeholder='Property Name'
+        value=changeset.name}}
   </div>
+
+  <div class="ui fluid large field">
+    <label>Address</label>
+    {{input type='text'
+        id='address'
+        placeholder='Address'
+        value=changeset.address}}
+  </div>
+
+  <div class="ui fluid large field">
+    <label>City</label>
+    {{input type='text'
+        id='city'
+        placeholder='City'
+        value=changeset.city}}
+  </div>
+
+  <div class="ui fluid large field">
+    <label>State</label>
+    {{input type='text'
+        id='state'
+        placeholder='state'
+        value=changeset.state}}
+  </div>
+
+  <div class="ui fluid large field">
+    <label>Zip</label>
+    {{input type='text'
+        id='zip'
+        placeholder='zip code'
+        value=changeset.zip}}
+  </div>
+  <button disabled={{changeset.isInvalid}} class='ui fluid large submit button' type='submit'>Submit</button>
 </form>
