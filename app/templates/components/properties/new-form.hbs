@@ -51,8 +51,15 @@
   </div>
   <button
        disabled={{isValid}}
-       class='ui fluid large submit button'
+       class='ui large submit primary button'
        type='submit'>
     Submit
+  </button>
+
+  <button
+       onclick={{action on-cancel}}
+       class='ui large button'
+       type='cancel'>
+    Cancel
   </button>
 </form>

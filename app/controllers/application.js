@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const { Controller, computed, get,
+const { Controller, get,
   inject: { service },
   computed: { reads },
  } = Ember;
@@ -9,9 +9,6 @@ export default Controller.extend({
   session: service(),
   currentUser: service(),
   user: reads('currentUser.user'),
-
-  dashboardRoute: computed('currentUser.user.role', function() {
-  }),
 
   actions: {
     invalidateSession() {

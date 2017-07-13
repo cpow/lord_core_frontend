@@ -8,6 +8,7 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('login');
+  this.route('role-handle');
   this.route('tenant-dashboard');
   this.route('manager-dashboard');
   this.route('properties', function() {
@@ -28,5 +29,6 @@ Router.map(function() {
   });
 
 });
+
 
 export default Router;

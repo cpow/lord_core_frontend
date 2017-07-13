@@ -9,37 +9,17 @@ export default Route.extend(ApplicationRouteMixin, {
   currentUser: service(),
   session: service(),
 
-  activate() {
-    if (get(this, 'session.isAuthenticated')){
-      this.transitionTo(this.routeFromRole());
-    }
-  },
-
   beforeModel() {
     return this._loadCurrentUser();
   },
 
   sessionAuthenticated() {
     this._super(...arguments);
-    this._loadCurrentUser()
-      .then(() => {
-        return this.transitionTo(this.routeFromRole());
-      })
-      .catch(() => get(this, 'session').invalidate());
+    return this._loadCurrentUser().catch(() => get(this, 'session').invalidate());
   },
 
   _loadCurrentUser() {
     return get(this, 'currentUser.loadTask').perform();
-  },
-
-  routeFromRole() {
-    let role = get(this, 'currentUser.user.role');
-
-    if (role) {
-      return `${role}-dashboard`;
-    }
-
-    return '/';
   },
 
   invalidateInitialURL() {

@@ -7,6 +7,13 @@ const { Controller, get } = Ember;
 export default Controller.extend({
   PropertyValidation,
 
+  actions: {
+    cancel() {
+      get(this, 'model').deleteRecord();
+      this.transitionToRoute('properties');
+    }
+  },
+
   saveTask: task(function * (changeset) {
     changeset.validate();
     if (get(changeset, 'isValid')) {

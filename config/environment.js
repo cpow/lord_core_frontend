@@ -3,7 +3,9 @@
 module.exports = function(environment) {
   var ENV = {
     'ember-simple-auth': {
-      authorizer: 'authorizer:token'
+      authorizer: 'authorizer:token',
+      authenticationRoute: 'login',
+      routeAfterAuthentication: 'role-handle',
     },
     'ember-simple-auth-token': {
       serverTokenEndpoint: '/api/v1/login',
