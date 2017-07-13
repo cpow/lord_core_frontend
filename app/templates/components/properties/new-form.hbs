@@ -49,5 +49,10 @@
         placeholder='zip code'
         value=changeset.zip}}
   </div>
-  <button disabled={{changeset.isInvalid}} class='ui fluid large submit button' type='submit'>Submit</button>
+  <button
+       disabled={{isValid}}
+       class='ui fluid large submit button'
+       type='submit'>
+    Submit
+  </button>
 </form>

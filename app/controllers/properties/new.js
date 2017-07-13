@@ -9,7 +9,7 @@ export default Controller.extend({
 
   saveTask: task(function * (changeset) {
     changeset.validate();
-    if (changeset.isValid) {
+    if (get(changeset, 'isValid')) {
       try{
         yield changeset.save();
         this.transitionToRoute('properties');
