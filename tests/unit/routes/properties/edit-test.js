@@ -2,10 +2,10 @@ import { expect } from 'chai';
 import { describe, it } from 'mocha';
 import { setupTest } from 'ember-mocha';
 
-describe('Unit | Route | role handle', function() {
-  setupTest('route:role-handle', {
+describe('Unit | Route | properties/edit', function() {
+  setupTest('route:properties/edit', {
     // Specify the other units that are required for this test.
-    needs: ['service:session', 'service:currentUser']
+    // needs: ['controller:foo']
   });
 
   it('exists', function() {

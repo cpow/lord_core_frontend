@@ -5,7 +5,7 @@ import { setupTest } from 'ember-mocha';
 describe('Unit | Route | properties/new', function() {
   setupTest('route:properties/new', {
     // Specify the other units that are required for this test.
-    // needs: ['controller:foo']
+    needs: ['service:currentUser']
   });
 
   it('exists', function() {

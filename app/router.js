@@ -13,6 +13,7 @@ Router.map(function() {
   this.route('manager-dashboard');
   this.route('properties', function() {
     this.route('new');
+    this.route('edit', {path: 'properties/:id/edit'});
   });
 
   this.route('users', function() {

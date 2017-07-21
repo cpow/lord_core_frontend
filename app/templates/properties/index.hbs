@@ -9,6 +9,7 @@
         <th>name</th>
         <th>address</th>
         <th>id</th>
+        <th>actions</th>
       </tr>
     </thead>
     <tbody>
@@ -22,6 +23,9 @@
           </td>
           <td class="company-properties__id">
             {{property.id}}
+          </td>
+          <td class="company-properties__actions">
+            {{#link-to 'properties.edit' property}}Edit{{/link-to}}
           </td>
         </tr>
       {{/each}}
