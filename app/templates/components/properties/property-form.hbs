@@ -1,4 +1,4 @@
-<form class="ui large form" {{action on-save changeset on='submit'}}>
+<form class="ui large form" >
   {{#if changeset.isInvalid}}
     <div class='ui negative message'>
       <p>There were errors in your form:</p>
@@ -50,14 +50,15 @@
         value=changeset.zip}}
   </div>
   <button
+       {{action onSubmit changeset}}
        disabled={{isValid}}
        class='ui large submit primary button'
-       type='submit'>
+       >
     Submit
   </button>
 
   <button
-       onclick={{action on-cancel changeset}}
+       onclick={{action onCancel changeset}}
        class='ui large button'
        type='cancel'>
     Cancel

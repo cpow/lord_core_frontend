@@ -8,6 +8,7 @@ describe('Integration | Component | login form', function() {
   setupComponentTest('login-form', {
     integration: true
   });
+
   it('renders', function() {
     startMirage(this.container);
     let model = server.create('user');
