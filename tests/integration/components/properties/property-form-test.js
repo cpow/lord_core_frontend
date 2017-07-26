@@ -3,9 +3,7 @@ import { describe, it } from 'mocha';
 import { setupComponentTest } from 'ember-mocha';
 import hbs from 'htmlbars-inline-precompile';
 import sinon from 'sinon';
-import Ember from 'ember';
 
-const { set } = Ember;
 
 describe('Integration | Component | properties/property-form', function() {
   setupComponentTest('properties/property-form', {
@@ -13,8 +11,8 @@ describe('Integration | Component | properties/property-form', function() {
   });
 
   it('renders', function() {
-    set(this, 'submitSpy', sinon.spy());
-    set(this, 'cancelSpy', sinon.spy());
+    this.set('submitSpy', sinon.spy());
+    this.set('cancelSpy', sinon.spy());
 
     this.render(hbs`{{properties/property-form
       onSubmit=(action submitSpy)
