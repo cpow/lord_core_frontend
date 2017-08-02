@@ -1,7 +1,8 @@
 /* eslint-env node */
+'use strict';
 
 module.exports = function(environment) {
-  var ENV = {
+  let ENV = {
     'ember-simple-auth': {
       authorizer: 'authorizer:token',
       authenticationRoute: 'login',
@@ -17,7 +18,7 @@ module.exports = function(environment) {
       authorizationHeaderName: 'Authorization'
     },
     modulePrefix: 'lord-core-frontend',
-    environment: environment,
+    environment,
     rootURL: '/',
     locationType: 'auto',
     EmberENV: {
